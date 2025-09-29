@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HAlMabOoBXE=",
+  "dgSpecHash": "D0pB1O1Fguk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohibjon\\Desktop\\EFCore\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Sohibjon\\Desktop\\allfrom .net course\\EFCore\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohibjon\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Sohibjon\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",

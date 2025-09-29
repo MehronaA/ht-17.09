@@ -707,11 +707,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sohibjon\\Desktop\\EFCore\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Sohibjon\\Desktop\\allfrom .net course\\EFCore\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Sohibjon\\Desktop\\EFCore\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Sohibjon\\Desktop\\allfrom .net course\\EFCore\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Sohibjon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sohibjon\\Desktop\\EFCore\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Sohibjon\\Desktop\\allfrom .net course\\EFCore\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sohibjon\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -726,8 +726,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Sohibjon\\Desktop\\EFCore\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Sohibjon\\Desktop\\EFCore\\Domain\\Domain.csproj"
+            "C:\\Users\\Sohibjon\\Desktop\\allfrom .net course\\EFCore\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Sohibjon\\Desktop\\allfrom .net course\\EFCore\\Domain\\Domain.csproj"
             }
           }
         }

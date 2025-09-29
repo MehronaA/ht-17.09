@@ -13,7 +13,8 @@ public class Product
     public int CategoryId { get; set; }
 
 
-    public Category Category { get; set; }
-    public ProductsTag ProductsTag { get; set; }
+    public Category Category { get; set; } = new Category();
+    public List<ProductsTag> ProductTags { get; set; } = new();
+    public List<OrderItem> OrderItems  { get; set; } = [];
     
 }

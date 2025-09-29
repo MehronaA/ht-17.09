@@ -4,39 +4,28 @@ namespace Infrastructure.APIResponce;
 
 public class Responce<T>
 {
-public bool IsSucced { get; set; }
-    public int StatusCode { get; set; }
+    public bool IsSucced { get; set; }
     public string? Message { get; set; }
     public T? Data { get; set; }
+    public ErrorType ErrorType { get; set; }
 
-    public static Responce<T> Ok(T? data,string? message=null)
+    public static Responce<T> Ok(T? data, string? message = null)=>new()
     {
-        return new Responce<T>
-        {
+        
+    
             IsSucced = true,
-            StatusCode = 200,
             Message = message,
             Data = data
-        };
-    }
-    public static Responce<T> Created(string? message, T? data = default)
+    };
+    
+   
+   
+    public static Responce<T> Fail(string message,ErrorType errorType=ErrorType.Internal)=>new()
     {
-        return new Responce<T>
-        {
-            IsSucced = true,
-            StatusCode = 201,
-            Message = message,
-            Data = data
-        };
-    }
-    public static Responce<T> Fail(int statusCode, string message)
-    { 
-        return new Responce<T>
-        {
-            IsSucced = false,
-            StatusCode = 201,
-            Message = message,
-            Data = default
-        };
-    }
+
+        IsSucced = false,
+        Message = message,
+        ErrorType=errorType
+    };
+    
 }

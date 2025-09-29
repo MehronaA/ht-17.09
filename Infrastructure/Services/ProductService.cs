@@ -22,7 +22,7 @@ public class ProductService : IProductService
         //Name
         if (string.IsNullOrWhiteSpace(dto.Name)) return Responce<string>.Fail(400, "Name is required");
         //Price
-        if (dto.Price <= 0) return Responce<string>.Fail(400, "Price cannot be negative or 0");
+        if (dto.Price <= 0) return Responce<string>.Fail(409, "Price cannot be negative or 0");
         //stock
         if (dto.Stock < 0) return Responce<string>.Fail(400, "Stock cannot be negative ");
         //categoryid
@@ -47,7 +47,7 @@ public class ProductService : IProductService
 
     public async Task<Responce<string>> DeleteItem(int id)
     {
-        var exist = await _context.Products.FirstOrDefaultAsync(p => p.UserId == id);
+        var exist = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         if (exist == null) return Responce<string>.Fail(404, "Product to delete not found");
 
         var delete = _context.Products.Remove(exist);
@@ -70,8 +70,30 @@ public class ProductService : IProductService
         return Responce<IEnumerable<ProductGetDto>>.Ok(items);
     }
 
-    public Task<Responce<string>> UpdateItem(int id, ProductUpdateDto dto)
+    public async Task<Responce<string>> UpdateItem(int id, ProductUpdateDto dto)
     {
-        
+        if (string.IsNullOrWhiteSpace(dto.Name)) return Responce<string>.Fail(409, "Name is required");
+        if (dto.Price < 0) return Responce<string>.Fail(409, "Price cannot be negative");
+        if (dto.Stock < 0) return Responce<string>.Fail(409, "Stock cannot be negative");
+        if (dto.CategoryId == 0) return Responce<string>.Fail(400, "Category is required");
+        if (dto.CategoryId == 0) return Responce<string>.Fail(400, "Category is required");
+
+        var exist = await _context.Products.FindAsync(id);
+        if (exist == null) return Responce<string>.Fail(404, "PRoduct to update not found");
+
+        bool noChange = exist.Name.ToLower() == dto.Name.ToLower().Trim() && exist.Price == dto.Price && exist.IsActive == dto.IsActive && exist.CategoryId == dto.CategoryId;
+
+        if (noChange) return Responce<string>.Fail(400, "Np changes were made");
+
+        exist.Name = dto.Name;
+        exist.Price = dto.Price;
+        exist.Stock = dto.Stock;
+        exist.IsActive = dto.IsActive;
+        exist.CategoryId = dto.CategoryId;
+
+        var result = await _context.SaveChangesAsync();
+        return result == 0
+                ? Responce<string>.Fail(500, "Not updated")
+                : Responce<string>.Created("Updated successfuly");
     }
 }

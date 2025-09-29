@@ -6,7 +6,7 @@ public class Tag
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    
 
-    public ProductsTag ProductsTag { get; set; }
+
+    public List<ProductsTag> ProductsTag { get; set; } = [];
 }
